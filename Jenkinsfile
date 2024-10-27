@@ -4,7 +4,7 @@ pipeline {
     stage('Blood bath')
     {
     steps{
-    sh sh '''mkdir hello
+     sh '''mkdir hello
 cd hello
 touch hi bye
 vi hi
