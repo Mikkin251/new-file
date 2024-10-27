@@ -16,7 +16,7 @@ pipeline {
 	sh 'git commit -m "first push" '
 }
 }
-	 stage('second stage')
+	 stage('seconds stage')
         {
         steps
         {
