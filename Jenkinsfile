@@ -1,58 +1,23 @@
-pipeline
-{
-agent any
-stages
-{
-stage('maven clean')
-{
-steps
-{
-sh "mvn clean"
-}
-}
-stage('maven validate')
-{
-steps
-{
-sh "mvn validate"
-}
-}
-stage('maven compile')
-{
-steps
-{
-sh "mvn compile"
-}
-}
-stage('maven test compile')
-{
-steps
-{
-sh "mvn test compile"
-}
-}
-stage('test')
-{
-steps
-{
-sh "mvn test"
-}
-}
-stage('package')
-{
-steps
-{
-sh "mvn package"
-}
-}
-stage('maven install')
-{
-steps
-{
-sh "mvn install"
-}
-}
-}
+pipeline {
+  agent none
+  stages {
+    stage('Back-end') {
+      agent {
+        docker { image 'maven:3.8.1-adoptopenjdk-11' }
+      }
+      steps {
+        sh 'mvn --version'
+      }
+    }
+    stage('Front-end') {
+      agent {
+        docker { image 'node:16-alpine' }
+      }
+      steps {
+        sh 'node --version'
+      }
+    }
+  }
 }
 
 
