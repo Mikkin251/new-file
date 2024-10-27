@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker { image 'node:16-alpine' }
   }
-  stage {
+  stages {
     stage('wildestpeople') {
       steps {
         sh 'node --version'
