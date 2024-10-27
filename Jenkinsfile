@@ -7,8 +7,6 @@ pipeline {
      sh '''mkdir hello
 cd hello
 touch hi bye
-vi hi
-echo " hello world"
 '''
 }
 }
