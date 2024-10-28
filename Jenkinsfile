@@ -1,30 +1,12 @@
 pipeline {
-  agent any
+  agent {
+    docker { image 'node:16-alpine' }
+  }
   stages {
-    stage('Blood bath')
-    {
-    steps{
-     sh 'git clone https://github.com/Mikkin251/new-file.git'
-
-     sh 'git add .'
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
+    }
+  }
 }
-}
-	stage('second stage')
-	{
-	steps
-	{
-	sh 'git commit -m "first push" '
-}
-}
-	 stage('seconds stage')
-        {
-        steps
-        {
-        sh 'git push -u origin master'
-}
-}
-}
-}
-
-
-
